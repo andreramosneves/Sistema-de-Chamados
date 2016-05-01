@@ -5,13 +5,8 @@
  */
 package Testes;
 
-import Persistencia.EmpresaDAO;
-import controle.ControleEmpresas;
 import controle.ControleTecnicos;
-import controle.IControlador;
-import entidade.Empresa;
 import entidade.Tecnico;
-import java.util.Iterator;
 import java.util.Random;
 import junit.framework.TestCase;
 import org.junit.Test;
