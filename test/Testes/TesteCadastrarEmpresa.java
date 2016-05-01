@@ -33,6 +33,22 @@ public class TesteCadastrarEmpresa {
             break;
         }
     }
+
+    @Test
+    public void testEmpresaContratoNegativo() {
+        Random rand = new Random();
+        Long contrato = ((long) rand.nextInt(1000))*-1;
+        EmpresaDAO mapeadorEmpresa = new EmpresaDAO();
+        Iterator<Empresa> iEmpresas = mapeadorEmpresa.getEmpresas().iterator();
+        IControlador controle = new ControleEmpresas();
+        while (iEmpresas.hasNext()) {
+            Empresa empresa = iEmpresas.next();
+            TestCase.assertEquals(controle.inserir(contrato, "Tem Retornar Nulo"), null);
+            break;
+        }
+    }
+    
+    
     @Test
     public void testNovaEmpresa() {
         Random rand = new Random();
