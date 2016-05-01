@@ -5,10 +5,18 @@
  */
 package Testes;
 
+import org.junit.Test;
+
 /**
  *
  * @author home
  */
 public class TesteCadastrarEmpresa {
+    
+    
+    @Test
+    public void testInsercaoEmpresa()   {
+        
+    }
     
 }
