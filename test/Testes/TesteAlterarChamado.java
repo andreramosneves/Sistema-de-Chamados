@@ -17,23 +17,35 @@ import org.junit.Test;
  * @author home
  */
 public class TesteAlterarChamado {
-    
-    
+
     @Test
-    public void testAlterarChamado(){
+    public void testAlterarChamado() {
         ControleChamados chamados = new ControleChamados();
-        
+
         Chamado chamado = chamados.buscaPeloCodigo(1);
-        TestCase.assertNotNull(chamados.alterarChamado(chamado,
-                Status.aguardando_resposta_do_usuario.name(), "dengue", "deixar agua em pneus."));
+        Chamado chamado2 = chamados.alterarChamado(chamado,
+                Status.encerrado.name(), "dengue", "deixar agua em pneus.");
+        TestCase.assertNotNull(chamado2);
     }
+
     @Test
-    public void testBuscaChamado(){
+    public void testAlterarChamadoStatusIguais() {
         ControleChamados chamados = new ControleChamados();
-        
+
+        Chamado chamado = chamados.buscaPeloCodigo(1);
+        Chamado chamado2 = chamados.alterarChamado(chamado,
+                Status.encerrado.name(), "dengue", "deixar agua em pneus.");
+        TestCase.assertNotNull(chamado2);
+        Chamado chamado3 = chamados.buscaPeloCodigo(1);
+        TestCase.assertEquals(chamado3.getStatus(), Status.encerrado.name());
+    }
+
+    @Test
+    public void testBuscaChamado() {
+        ControleChamados chamados = new ControleChamados();
+
         Chamado chamado = chamados.buscaPeloCodigo(-1);
         TestCase.assertNull(chamado);
     }
-    
-}
 
+}
