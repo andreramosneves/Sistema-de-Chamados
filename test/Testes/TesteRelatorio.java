@@ -5,10 +5,23 @@
  */
 package Testes;
 
+import controle.ControleChamados;
+import junit.framework.TestCase;
+import org.junit.Test;
+
 /**
  *
  * @author home
  */
 public class TesteRelatorio {
+    
+    
+   @Test
+   public void testRelatorio(){
+       ControleChamados controleChamados = new ControleChamados();
+
+        TestCase.assertNotNull(controleChamados.emitirRelatorios(1));
+       
+   }
     
 }
