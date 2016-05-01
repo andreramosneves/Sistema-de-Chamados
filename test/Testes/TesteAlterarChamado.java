@@ -5,6 +5,11 @@
  */
 package Testes;
 
+import Persistencia.ChamadoDAO;
+import controle.ControleChamados;
+import entidade.Chamado;
+import entidade.Status;
+import junit.framework.TestCase;
 import org.junit.Test;
 
 /**
@@ -16,7 +21,19 @@ public class TesteAlterarChamado {
     
     @Test
     public void testAlterarChamado(){
-    
+        ControleChamados chamados = new ControleChamados();
+        
+        Chamado chamado = chamados.buscaPeloCodigo(1);
+        TestCase.assertNotNull(chamados.alterarChamado(chamado,
+                Status.aguardando_resposta_do_usuario.name(), "dengue", "deixar agua em pneus."));
     }
+    @Test
+    public void testBuscaChamado(){
+        ControleChamados chamados = new ControleChamados();
+        
+        Chamado chamado = chamados.buscaPeloCodigo(-1);
+        TestCase.assertNull(chamado);
+    }
+    
 }
 
