@@ -5,6 +5,10 @@
  */
 package Testes;
 
+import controle.ControleEmpresas;
+import controle.IControlador;
+import junit.framework.Assert;
+import junit.framework.TestCase;
 import org.junit.Test;
 
 /**
@@ -15,8 +19,9 @@ public class TesteCadastrarEmpresa {
     
     
     @Test
-    public void testInsercaoEmpresa()   {
-        
+    public void testInsercaoMesmaEmpresa()   {
+        IControlador controle = new ControleEmpresas();
+        TestCase.assertEquals(controle.inserir(2, ""),null);
     }
     
 }
