@@ -9,6 +9,6 @@ package Testes;
  *
  * @author home
  */
-public class TesteAlterarChanado {
+public class TesteAlterarChamado {
     
 }
