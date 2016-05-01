@@ -11,7 +11,6 @@ import controle.IControlador;
 import entidade.Empresa;
 import java.util.Iterator;
 import java.util.Random;
-import junit.framework.Assert;
 import junit.framework.TestCase;
 import org.junit.Test;
 
