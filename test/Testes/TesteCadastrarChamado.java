@@ -6,8 +6,12 @@
 package Testes;
 
 import Persistencia.ChamadoDAO;
+import Persistencia.ClienteDAO;
+import Persistencia.TecnicoDAO;
 import controle.ControleChamados;
 import entidade.Chamado;
+import entidade.ClienteEmpresa;
+import entidade.Tecnico;
 import org.junit.Test;
 
 /**
@@ -24,22 +28,39 @@ public class TesteCadastrarChamado {
        String titulo = " teste de banco";
        String descricao = " banco de dados nao funciona";
        String so = "linux";
-       String versao = " debian";
-        
+       String versaoSO = " debian";
+       String bancoDeDados = " mysql";
+       
+        TecnicoDAO tDAO = new TecnicoDAO();
+        Tecnico tecnico = tDAO.get(1);
+        ClienteDAO cDAO = new ClienteDAO();
+        ClienteEmpresa cliente = cDAO.get((long)1);
+      
         Chamado chambanco=ctrChamados.InserirChamadoBancoDeDados(titulo, descricao, 0, tecnico, cliente, so, versaoSO, bancoDeDados);
-        Chamado chamDes = ctrChamados.InserirChamadoDesempenho(titulo, descricao, 0, tecnico, cliente, so, versaoSO, operacao, 0);
-        Chamado chamRede = ctrChamados.InserirChamadoRede(titulo, descricao, 0, tecnico, cliente, so, versaoSO, conexao, enderecoRede);
         
-        ctrChamados.inserirRegistroChamado("Teste de Banco", chambanco, tec);
-        ctrChamados.inserirRegistroChamado("Teste de Desempenho", chamDes, tec);
-        ctrChamados.inserirRegistroChamado(" Teste de Rede", chamRede, tec);
+         String tituloDes = " teste de banco";
+       String descricaoDes = " banco de dados nao funciona";
+       String soDes = "linux";
+       String versaoSODes = " debian";
+       String operacao = " test";
+              
         
+        Chamado chamDes = ctrChamados.InserirChamadoDesempenho(tituloDes, descricaoDes, 0, tecnico, cliente, soDes, versaoSODes, operacao, 0);
         
+        String tituloRede = " teste de banco";
+       String descricaoRede = " banco de dados nao funciona";
+       String soRede= "linux";
+       String versaoSORede = " debian";
+          String conexaoRede =" test";
+       String enderecoRedeRede = "rua maria antonia";
         
+        Chamado chamRede = ctrChamados.InserirChamadoRede(tituloRede, descricaoRede, 0, tecnico, cliente, soRede, versaoSORede, conexaoRede, enderecoRedeRede);
         
+   
         
-        
+        ctrChamados.inserirRegistroChamado("Teste de Banco", chambanco, tecnico);
+        ctrChamados.inserirRegistroChamado("Teste de Desempenho", chamDes, tecnico);
+        ctrChamados.inserirRegistroChamado(" Teste de Rede", chamRede, tecnico);
         
     }
-    
-}
+ }
