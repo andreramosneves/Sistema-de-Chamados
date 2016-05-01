@@ -5,10 +5,18 @@
  */
 package Testes;
 
+import org.junit.Test;
+
 /**
  *
  * @author home
  */
 public class TesteAlterarChamado {
     
+    
+    @Test
+    public void testAlterarChamado(){
+    
+    }
 }
+
